@@ -1,0 +1,91 @@
+/*Realizar un programa que dada una dirección IP calcule a qué red pertenece,
+si es un IP válida o no para ser asignada a un hots, calcule su máscara y 
+prefijo y la drirección de red y de broadcast de la dirección. Subir a github.*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a;
+	a = 255;
+	
+	int ip1, ip2, ip3, ip4;
+	
+	
+	cout << "INGRESE LA PRIMERA PARTE DE LA IP: ";
+	cin >> ip1;
+	cout << "Ingrese La segunda parte de la IP: ";
+	cin >> ip2;
+	cout << "Ingrese La Tercera parte de la IP: ";
+	cin >> ip3;
+	cout << "Ingrese la Cuarta parte de la IP: ";
+	cin >> ip4;
+	cout << "\n\n\n\n\n\n\n\n\n\n";
+	cout << "*******************************************************"<<endl;
+	cout << "*******************CALCULADOR DE IPv4******************"<<endl;
+	cout << "*******************************************************"<<endl;
+	cout << "*******************************************************"<<endl;
+	if(ip1 <=255 && ip2 <=255 && ip3 <=255 && ip4 <=255)
+	{
+		cout << "****************Su IP Es Esta: " <<ip1<<"."<<ip2<<"."<<ip3<<"."<<ip4 <<"************" <<endl;
+	}
+	else
+	{
+		cout << "IP Incorreca Usted Es un Hackker El programa se ciclara Adio" <<endl;
+		for(int i = 0; i <= 10000000; i++)
+		{
+				cout << "Adios\a" << endl;
+		}
+	}
+
+	/*Clase A*/
+	
+	if(ip1 > 0 && ip1 <= 127)
+	{
+		cout << "\t  IP Clase: " << 'A' << "\n";
+		
+		cout <<"\t  Mac Con Prefijo: "<< a<<".0.0.0" << " /8\n";
+		cout << "\t  Direccion De Red: " << ip1 <<".0.0.0" << endl;
+		cout << "\t  Direccion De Broadcast: " << ip1 << ".255.255.255" << endl;
+		
+			 	
+	}
+	if(ip1 >= 128 && ip1 <= 191)
+	{
+		cout << "\t  IP Clase: " << 'B' <<"\n";
+		
+		cout << "\t  Mac Con Prefijo: "<< a<<"."<<a<< ".0.0" <<" /16\n";
+		cout << "\t  Direccion De Red: " << ip1 <<"."<< ip2 << ".0.0" << endl;
+		cout << "\t  Direccion De Broadcast: " << ip1 <<"."<< ip2<<".255.255" << endl;
+	}
+	if(ip1 >= 192 && ip1 <= 223)
+	{
+		cout << "\t  IP Clase: " << 'C' << "\n";
+		cout << "\t  Mac Con Prefijo: "<< a<<"."<<a<< a<<".0" <<" /24\n";
+		cout << "\t  Direccion De Red: " << ip1 <<"."<<ip2<<"."<<ip3<<".0" << endl;
+		cout << "\t  Direccion De Broadcast: " << ip1 << "."<<ip2<< ip3 <<".255" << endl;
+	}
+	 if(ip1 >= 224 && ip1 <= 239)
+	{
+		cout << "\t  IP Clase: " << 'D';
+		cout << "\t  Tiene una IP Multicast"<< endl;
+		cout << "\t  Mac Con Prefijo: "<< a<<"."<<a<< a << a <<" /32\n";
+		
+		
+	}
+	
+	if(ip1 >= 240 && ip1 <= 255)
+	{
+	
+		cout << "\t  IP Clase: " << 'E';
+		cout << "\t  Tiene una IP experimental";
+		cout << "\t  Mac Con Prefijo: "<< a<<"."<<a<< a << a <<" /32\n";
+		
+	}
+	
+	
+cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";	
+ return 0;
+}
